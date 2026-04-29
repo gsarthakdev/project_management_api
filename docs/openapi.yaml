@@ -6,6 +6,8 @@ info:
 servers:
   - url: http://localhost:3000
     description: Local development server
+  - url: https://project-management-api-kz1p.onrender.com
+    description: Production server
 tags:
   - name: Auth
     description: Authentication endpoints

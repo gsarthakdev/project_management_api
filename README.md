@@ -4,10 +4,7 @@ This testing plan provides step-by-step instructions to verify the API endpoints
 
 ## Preparation
 
-Ensure the server and database are running and seeded:
-1. `npm run dev`
-2. `npm run seed:dev`
-3. Go to the following link: [http://localhost:3000/api-docs](http://localhost:3000/api-docs)
+Go to the following link: [https://project-management-api-kz1p.onrender.com/api-docs](https://project-management-api-kz1p.onrender.com/api-docs)
 
 ### Note: 
 - The database has been seeded with two users:
