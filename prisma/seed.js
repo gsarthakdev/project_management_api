@@ -73,6 +73,26 @@ try {
   });
   console.log(`Created project: ${project2.name}`);
 
+  // Admin creates a private project
+  const project3 = await prisma.project.create({
+    data: {
+      name: "Admin's Private Project",
+      description: "Confidential administrative tasks",
+      members: {
+        create: [
+          { userId: admin.id, role: "Owner" },
+        ],
+      },
+      tasks: {
+        create: [
+          { title: "Secret Task", status: "In Progress", assigneeId: admin.id },
+        ]
+      }
+    },
+    include: { tasks: true }
+  });
+  console.log(`Created project: ${project3.name}`);
+
   // Add Comments
   await prisma.comment.create({
     data: {
@@ -87,6 +107,15 @@ try {
       content: "I will get to this tomorrow.",
       taskId: project1.tasks[1].id,
       authorId: reqUser.id,
+    }
+  });
+
+  // Add a comment to the secret task for testing comment 403
+  await prisma.comment.create({
+    data: {
+      content: "This is a secret comment.",
+      taskId: project3.tasks[0].id,
+      authorId: admin.id,
     }
   });
 

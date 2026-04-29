@@ -107,7 +107,9 @@ Go to the following link: [https://project-management-api-kz1p.onrender.com/api-
 3. **404 Not Found:**
    - Set `id` to `999`. Execute. *Expect 404 Not Found.*
 4. **403 Forbidden:**
-   - Stay logged in as Admin, create a project. The Regular User is not part of it. Log in as Regular User, attempt to GET that project ID. *Expect 403 Forbidden.*
+   - Authorize as `user@example.com`.
+   - Set `id` to `3` (Admin's Private Project).
+   - Click Execute. *Expect 403 Forbidden.*
       - Note: These are the seeded credentials, as listed at the very top of this file.
          - **Admin**: `admin@example.com` / `Password123!`
          - **Regular User**: `user@example.com` / `userpassword321`
@@ -160,7 +162,9 @@ Go to the following link: [https://project-management-api-kz1p.onrender.com/api-
 3. **409 Conflict:**
    - Execute the same body again. *Expect 409 Conflict.*
 4. **403 Forbidden:**
-   - Attempt to provide a `projectId` the user does not belong to. *Expect 403 Forbidden.*
+   - Authorize as `user@example.com`.
+   - Provide body with `projectId`: `3` (Admin's Private Project).
+   - Click Execute. *Expect 403 Forbidden.*
 
 ### 4.2 GET `/api/tasks`
 **Access Control:** Authenticated User
@@ -173,6 +177,10 @@ Go to the following link: [https://project-management-api-kz1p.onrender.com/api-
 1. Expand `GET /api/tasks/{id}`, click Try it out.
 2. Provide `id` `1`.
 3. Execute. *Expect 200 OK.*
+4. **403 Forbidden:**
+   - Authorize as `user@example.com`.
+   - Set `id` to `4` (Task in Admin's Private Project).
+   - Click Execute. *Expect 403 Forbidden.*
 
 ### 4.4 PUT `/api/tasks/{id}`
 **Access Control:** Member of Project
@@ -190,8 +198,9 @@ Go to the following link: [https://project-management-api-kz1p.onrender.com/api-
 3. **404 Not Found:**
    - Set `id` to `999`. Execute. *Expect 404 Not Found.*
 4. **403 Forbidden:**
-   - Authorize as `user@example.com` and set `id` to a task in a project the user has no access to.
-   - Execute. *Expect 403 Forbidden.*
+   - Authorize as `user@example.com`.
+   - Set `id` to `4` (Task in Admin's Private Project).
+   - Click Execute. *Expect 403 Forbidden.*
 
 ### 4.5 DELETE `/api/tasks/{id}`
 **Access Control:** Project Admin/Owner
@@ -232,7 +241,9 @@ Go to the following link: [https://project-management-api-kz1p.onrender.com/api-
 3. **404 Not Found:**
    - Set `id` to `999`. Execute. *Expect 404 Not Found.*
 4. **403 Forbidden:**
-   - Authorize as a user who doesn't have access to the parent project and try to access the comment. Execute. *Expect 403 Forbidden.*
+   - Authorize as `user@example.com`.
+   - Set `id` to `3` (Comment on Admin's Secret Task).
+   - Click Execute. *Expect 403 Forbidden.*
 
 ### 5.4 PUT `/api/comments/{id}`
 **Access Control:** Original Author ONLY
