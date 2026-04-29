@@ -4,10 +4,10 @@ info:
   version: 1.0.0
   description: A REST API for a Project Management application allowing teams to organize work, create tasks, and collaborate via comments.
 servers:
-  - url: http://localhost:3000
-    description: Local development server
   - url: https://project-management-api-kz1p.onrender.com
     description: Production server
+  - url: http://localhost:3000
+    description: Local development server
 tags:
   - name: Auth
     description: Authentication endpoints
