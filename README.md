@@ -152,7 +152,7 @@ Go to the following link: [https://project-management-api-kz1p.onrender.com/api-
      ```json
      {
        "title": "New Task",
-       "projectId": 2
+       "projectId": 1
      }
      ```
      *(Assuming Project 2 exists and user is a member of it. You will see Project 1 if 2 isn't applicable due to prior operations)*
