@@ -108,6 +108,9 @@ Go to the following link: [https://project-management-api-kz1p.onrender.com/api-
    - Set `id` to `999`. Execute. *Expect 404 Not Found.*
 4. **403 Forbidden:**
    - Stay logged in as Admin, create a project. The Regular User is not part of it. Log in as Regular User, attempt to GET that project ID. *Expect 403 Forbidden.*
+      - Note: These are the seeded credentials, as listed at the very top of this file.
+         - **Admin**: `admin@example.com` / `Password123!`
+         - **Regular User**: `user@example.com` / `userpassword321`
 
 ### 3.4 PUT `/api/projects/{id}`
 **Access Control:** Admin/Owner of Project
